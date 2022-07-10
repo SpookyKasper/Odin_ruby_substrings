@@ -18,22 +18,23 @@
 # Recall how to turn strings into arrays and arrays into strings.
 
 # ALGORITHM: Declare an array called dictionary with inital value of a list valid words
-# dictionary is the list of words that we want to check how many times they are present 
-# in the passed string
+# dictionary is the list of words that we want to check how many times each word is present in the passed string
+# declare an empty hash
+# delcare a variable called words_a that stores an array made of the words from the passed string
 
 
-dictionary = %w(give me some words some to test things ive runout out)
+dictionary = %w(give me some words to test things ive runout out)
 
 def substrings(string, dico)
   my_hash = Hash.new(0)
   words_a = string.split()
   dico.each do |v|
-    if string.include?(v) then my_hash[v] += words_a.count{|x| x.include?(v)} end
+    if string.downcase.include?(v.downcase) then my_hash[v] += words_a.count{|x| x.downcase.include?(v.downcase)} end
   end
   my_hash
 end
 
-p substrings("Give me some Ghetto to test somethings out outive", dictionary)
+p substrings("Give me some Ghetto To test somethings out outive", dictionary)
 
 
 
