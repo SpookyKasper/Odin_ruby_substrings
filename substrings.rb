@@ -18,7 +18,7 @@ def substrings(string, dico)
   my_hash = Hash.new(0)
   words_a = string.split()
   dico.each do |w|
-    if string.downcase.include?(w.downcase) then my_hash[w] += words_a.count{|x| x.downcase.include?(w.downcase)} end
+    if string.downcase.include?(w.downcase) then my_hash[w] = words_a.count{|x| x.downcase.include?(w.downcase)} end
   end
   my_hash
 end
