@@ -18,25 +18,23 @@
 # Recall how to turn strings into arrays and arrays into strings.
 
 # ALGORITHM: Declare an array called dictionary with inital value of a list valid words
-# this array will be passed as the second argument to the substrings method
+# dictionary will be passed as the second argument to the substrings method
 
-dictionary = %w(give me some words to thest things out)
+
+dictionary = %w(give me some words some to thest things out)
 
 def substrings(word, array)
-  array.include?(word)
+  my_hash = Hash.new(0)
+  array.each do |v| 
+    if word.include?(v) then my_hash[v] += 1 
+    end
+  end
 end
 
-
 p substrings("some", dictionary)
-StringForSub = "virus"
 
-StartSub = StringForSub[0..3]
-MidSub = StringForSub[2..3]
-EndSub = StringForSub[3..-1]
 
-puts StartSub
-puts MidSub
-puts EndSub
+
 
 
 
