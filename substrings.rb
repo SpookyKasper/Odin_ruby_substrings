@@ -1,4 +1,4 @@
-# Implement a method #substrings that takes a word as the first argument 
+# Implement a method #substrings that takes a string as the first argument 
 # and then an array of valid substrings (your dictionary) as the second argument. 
 # It should return a hash listing each substring (case insensitive) 
 # that was found in the original string and how many times it was found.
@@ -18,20 +18,22 @@
 # Recall how to turn strings into arrays and arrays into strings.
 
 # ALGORITHM: Declare an array called dictionary with inital value of a list valid words
-# dictionary will be passed as the second argument to the substrings method
+# dictionary is the list of words that we want to check how many times they are present 
+# in the passed string
 
 
-dictionary = %w(give me some words some to thest things out)
+dictionary = %w(give me some words some to test things ive runout out)
 
-def substrings(word, array)
+def substrings(string, dico)
   my_hash = Hash.new(0)
-  array.each do |v| 
-    if word.include?(v) then my_hash[v] += 1 
-    end
+  words_a = string.split()
+  dico.each do |v|
+    if string.include?(v) then my_hash[v] += words_a.count{|x| x.include?(v)} end
   end
+  my_hash
 end
 
-p substrings("some", dictionary)
+p substrings("Give me some Ghetto to test somethings out outive", dictionary)
 
 
 
